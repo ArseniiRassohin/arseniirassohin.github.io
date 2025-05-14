@@ -1,27 +1,54 @@
 document.getElementById('registerForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
     
-    // Check password length
-    if (password.length < 8) {
+    let hasError = false;
+    
+    if (!emailInput.value) {
+        emailError.style.display = 'block';
+        hasError = true;
+    } else {
+        emailError.style.display = 'none';
+    }
+    
+    if (!passwordInput.value) {
         passwordError.style.display = 'block';
-        return;
+        passwordError.textContent = 'Please enter your password.';
+        hasError = true;
+    } else if (passwordInput.value.length < 8) {
+        passwordError.style.display = 'block';
+        passwordError.textContent = 'Password must be at least 8 characters long.';
+        hasError = true;
     } else {
         passwordError.style.display = 'none';
     }
     
-    // Show success modal
-    const modal = document.getElementById('modal');
-    modal.style.display = 'flex';
-    
-    // Clear form
-    document.getElementById('registerForm').reset();
+    if (!hasError) {
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('registerForm').reset();
+    }
 });
 
-// Close modal
+document.getElementById('email').addEventListener('input', function() {
+    document.getElementById('emailError').style.display = 'none';
+});
+
+document.getElementById('password').addEventListener('input', function() {
+    document.getElementById('passwordError').style.display = 'none';
+});
+
 document.getElementById('modalClose').addEventListener('click', function() {
     document.getElementById('modal').style.display = 'none';
+});
+
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const sectionId = this.getAttribute('href');
+        document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
+    });
 });

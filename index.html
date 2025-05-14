@@ -3,30 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Luxe Accessories</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <div class="header-content">
+            <h1>Luxe Accessories</h1>
+            <p>Elegance in Every Detail</p>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#subscribe">Subscribe</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
     <main>
-        <section>
-            <h2>Registration</h2>
+        <section id="home" class="card">
+            <h2>Welcome to Luxe</h2>
+            <p>Discover our exclusive collection of handcrafted jewelry and accessories, designed to elevate your style with timeless elegance.</p>
+        </section>
+        <section id="products" class="card">
+            <h2>Our Collection</h2>
+            <div class="product-gallery">
+                <div class="product-card">
+                    <img src="images/ring.jpg" alt="Gold Ring">
+                    <h3>Gold Serenity Ring</h3>
+                    <p>$199.00</p>
+                    <a href="#" class="product-link">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/bracelet.jpg" alt="Silver Bracelet">
+                    <h3>Silver Moonlight Bracelet</h3>
+                    <p>$249.00</p>
+                    <a href="#" class="product-link">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/watch.jpg" alt="Classic Watch">
+                    <h3>Classic Luxe Watch</h3>
+                    <p>$399.00</p>
+                    <a href="#" class="product-link">View Details</a>
+                </div>
+            </div>
+        </section>
+        <section id="subscribe" class="card">
+            <h2>Join Our Exclusive Club</h2>
+            <p>Subscribe to receive special offers and updates on our latest collections!</p>
             <form id="registerForm">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <p id="emailError" class="error" style="display: none;">Please enter your email.</p>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <p id="passwordError" class="error" style="display: none;">Password must be at least 8 characters long.</p>
-                <button type="submit">Register</button>
+                <button type="submit">Sign Up</button>
             </form>
+        </section>
+        <section id="contact" class="card">
+            <h2>Contact Us</h2>
+            <p>
+                <img src="images/email-icon.png" alt="Email Icon" class="contact-icon">
+                Email: <a href="mailto:contact@luxeaccessories.com">contact@luxeaccessories.com</a>
+            </p>
+            <p>
+                <img src="images/instagram-icon.png" alt="Instagram Icon" class="contact-icon">
+                Instagram: <a href="https://instagram.com/luxeaccessories" target="_blank">@luxeaccessories</a>
+            </p>
         </section>
     </main>
     <div id="modal" class="modal">
         <div class="modal-content">
-            <h3>Success!</h3>
-            <p>Registration successful!</p>
+            <h3>Welcome Aboard!</h3>
+            <p>You're now part of the Luxe Club. Check your email for exclusive offers!</p>
             <button id="modalClose">OK</button>
         </div>
     </div>
