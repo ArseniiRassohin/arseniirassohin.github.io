@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/background.jpg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/prahant-photo-films-fP7s7YTfKx4-unsplash.jpg') no-repeat center center fixed;
     background-size: 1920px auto; /* Фиксированная ширина фона для десктопа */
     background-position: center;
     color: #fff;
