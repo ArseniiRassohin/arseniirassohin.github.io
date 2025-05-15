@@ -52,3 +52,27 @@ document.querySelectorAll('nav a').forEach(anchor => {
         document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+// Carousel functionality
+const track = document.querySelector('.carousel-track');
+const cards = document.querySelectorAll('.product-card');
+const totalCards = cards.length;
+let currentIndex = 0;
+
+function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth + 20; // Card width + margin
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalCards; // Cycle to start
+    updateCarousel();
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards; // Cycle to end
+    updateCarousel();
+});
+
+// Adjust carousel on window resize
+window.addEventListener('resize', updateCarousel);
