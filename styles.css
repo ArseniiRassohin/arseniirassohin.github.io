@@ -302,18 +302,6 @@ a:hover {
     background: #b8972e;
 }
 
-#under-development {
-    text-align: center;
-    padding: 20px;
-    font-size: 1.2em;
-}
-@media (max-width: 600px) {
-    #under-development {
-        font-size: 1em;
-        padding: 15px;
-    }
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -383,5 +371,18 @@ a:hover {
     .product-card {
         max-width: 270px;
         flex: 0 0 270px;
+    }
+}
+
+.development-notice {
+    font-size: 0.9em;
+    color: #e0e0e0;
+    margin-top: 15px;
+    font-style: italic;
+}
+@media (max-width: 600px) {
+    .development-notice {
+        font-size: 0.8em;
+        margin-top: 10px;
     }
 }
