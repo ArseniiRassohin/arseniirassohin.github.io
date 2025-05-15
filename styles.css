@@ -69,7 +69,7 @@ main {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255,  Untitled Document255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 25px;
@@ -95,6 +95,7 @@ p {
     position: relative;
     max-width: 100%;
     overflow: hidden;
+    user-select: none; /* Отключаем выделение текста при свайпе */
 }
 
 .carousel-container {
@@ -105,6 +106,11 @@ p {
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    cursor: grab; /* Курсор "хватания" */
+}
+
+.carousel-track:active {
+    cursor: grabbing; /* Курсор при зажатии */
 }
 
 .product-card {

@@ -74,5 +74,49 @@ document.getElementById('prevBtn').addEventListener('click', () => {
     updateCarousel();
 });
 
+// Mouse swipe functionality
+let isDragging = false;
+let startX;
+let startTransform = 0;
+
+track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX;
+    startTransform = currentIndex * (cards[0].offsetWidth + 20);
+    track.style.transition = 'none'; // Отключаем анимацию во время перетаскивания
+});
+
+track.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const diffX = e.pageX - startX;
+    track.style.transform = `translateX(-${startTransform - diffX}px)`;
+});
+
+track.addEventListener('mouseup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.transition = 'transform 0.5s ease-in-out'; // Восстанавливаем анимацию
+    const diffX = e.pageX - startX;
+    const cardWidth = cards[0].offsetWidth + 20;
+    const threshold = cardWidth / 3; // Порог для смены карточки
+
+    if (diffX > threshold) {
+        // Свайп вправо (предыдущая карточка)
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    } else if (diffX < -threshold) {
+        // Свайп влево (следующая карточка)
+        currentIndex = (currentIndex + 1) % totalCards;
+    }
+    updateCarousel();
+});
+
+track.addEventListener('mouseleave', () => {
+    if (isDragging) {
+        isDragging = false;
+        track.style.transition = 'transform 0.5s ease-in-out';
+        updateCarousel();
+    }
+});
+
 // Adjust carousel on window resize
 window.addEventListener('resize', updateCarousel);
