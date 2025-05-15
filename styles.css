@@ -302,6 +302,18 @@ a:hover {
     background: #b8972e;
 }
 
+#under-development {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+}
+@media (max-width: 600px) {
+    #under-development {
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
